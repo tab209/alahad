@@ -31,7 +31,7 @@
       gtag('config', 'AW-18198782446');
     </script>
 
-    <!-- Google tag (gtag.js) - كود التتبع الجديد المطلوب ID: AW-18200266393 -->
+    <!-- Google tag (gtag.js) - كود التتبع الجديد ID: AW-18200266393 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18200266393"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -77,7 +77,7 @@
 
     <!-- Event snippet لانقر للاتصال - الكود القديم ID: AW-16770440481 -->
     <script>
-    function gtag_report_conversion(url) {
+    function gtag_report_conversion_old2(url) {
       var callback = function () {
         if (typeof(url) != 'undefined') {
           window.location = url;
@@ -111,18 +111,16 @@
     }
     </script>
 
-    <!-- Event snippet جديد للتحويل - انقر للاتصال لـ AW-18200266393 -->
+    <!-- Event snippet لنقرة صادرة إلى الخارج الجديدة - ID: AW-18200266393 -->
     <script>
-    function gtag_report_conversion_new(url) {
+    function gtag_report_conversion(url) {
       var callback = function () {
         if (typeof(url) != 'undefined') {
           window.location = url;
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-18200266393/XXXXXXXXXXX',
-          'value': 1.0,
-          'currency': 'USD',
+          'send_to': 'AW-18200266393/A5vNCIzt5bocEJmNyOZD',
           'event_callback': callback
       });
       return false;
@@ -1006,11 +1004,9 @@
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // تتبع التحويل لـ AW-18200266393
-            if (typeof gtag_report_conversion_new === 'function') {
-                gtag_report_conversion_new();
-            } else {
-                gtag('event', 'conversion', {'send_to': 'AW-18200266393/XXXXXXXXXXX'});
+            // تتبع التحويل لـ AW-18200266393 عند إرسال النموذج
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
             }
             alert('شكراً لتواصلكم مع شركة العهد لمكافحة الحشرات! سنقوم بالاتصال بكم لتأكيد الطلب وتحديد موعد المعاينة المجانية في أقرب وقت.');
             this.reset();
